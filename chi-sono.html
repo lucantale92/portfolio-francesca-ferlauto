@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi Sono — Francesca Ferlauto</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-content {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-image { position: relative; overflow: hidden; aspect-ratio: 3/4; }
+.about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-image::before {
+  content: ''; position: absolute;
+  bottom: -12px; left: -12px; width: 100%; height: 100%;
+  border: 1px solid var(--azure-light); z-index: -1;
+}
+.about-text .highlight-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 22px;
+  color: var(--terracotta); line-height: 1.6;
+  margin-bottom: 32px; padding-left: 24px;
+  border-left: 2px solid var(--terracotta-light);
+}
+
+/* STATS */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--cream);
+}
+.stat {
+  text-align: center; padding: 56px 24px;
+  border-right: 1px solid var(--divider);
+}
+.stat:last-child { border-right: none; }
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 300;
+  color: var(--terracotta); line-height: 1; margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 12px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+/* TIMELINE */
+.timeline-section { background: var(--white); }
+.timeline { max-width: 700px; margin: 0 auto; position: relative; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 50%; top: 0; width: 1px; height: 100%;
+  background: var(--divider); transform: translateX(-50%);
+}
+.timeline-item {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; margin-bottom: 48px; position: relative;
+}
+.timeline-item::before {
+  content: ''; position: absolute;
+  left: 50%; top: 8px; width: 10px; height: 10px;
+  background: var(--terracotta); border-radius: 50%;
+  transform: translateX(-50%);
+}
+.timeline-year {
+  text-align: right;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; color: var(--terracotta-light);
+}
+.timeline-text h3 {
+  font-size: 20px; margin-bottom: 8px;
+}
+.timeline-text p {
+  font-size: 14px; color: var(--text-muted); line-height: 1.7;
+}
+
+/* VALUES */
+.values { background: var(--cream); }
+.values-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px; margin-top: 48px;
+}
+.value-card {
+  text-align: center; padding: 40px 28px;
+  background: var(--white);
+}
+.value-icon { font-size: 28px; margin-bottom: 20px; }
+.value-card h3 { font-size: 22px; margin-bottom: 12px; }
+.value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 100%; }
+
+@media (max-width: 968px) {
+  .about-content { grid-template-columns: 1fr; gap: 40px; }
+  .about-image { aspect-ratio: 3/2; }
+  .about-image::before { display: none; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .timeline::before { left: 0; }
+  .timeline-item::before { left: 0; }
+  .timeline-year { text-align: left; }
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"><div class="loader-icon">✿</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="chi-sono.html" onclick="closeMobile()">Chi Sono</a>
+  <a href="servizi.html" onclick="closeMobile()">Servizi</a>
+  <a href="mission.html" onclick="closeMobile()">Mission</a>
+  <a href="contatti.html" onclick="closeMobile()">Contatti</a>
+</div>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Francesca <span>Ferlauto</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="chi-sono.html" class="active">Chi Sono</a></li>
+    <li><a href="servizi.html">Servizi</a></li>
+    <li><a href="mission.html">Mission</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('img/chisono-hero.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Chi Sono</p>
+    <h1>Francesca Ferlauto</h1>
+    <p class="section-subtitle">Wedding planner, sognatrice, siciliana</p>
+  </div>
+</section>
+
+<section class="about-content" style="padding: 100px 60px;">
+  <div class="about-image reveal">
+    <img src="img/chisono-portrait.jpg" alt="Francesca Ferlauto" loading="lazy">
+  </div>
+  <div class="about-text">
+    <p class="section-tag reveal">La mia storia</p>
+    <h2 class="section-title reveal">Da sogno<br>a professione</h2>
+    <p class="highlight-quote reveal">Credo che un matrimonio non sia un evento da organizzare, ma una storia da raccontare.</p>
+    <p class="reveal">Sono cresciuta tra i mercati colorati di Catania e le spiagge dorate della costa orientale siciliana. L'amore per la bellezza, i dettagli e la convivialità fa parte del mio DNA.</p>
+    <br>
+    <p class="reveal">Dopo la laurea in Comunicazione e un master in Event Management, ho iniziato a lavorare nel mondo dei matrimoni nel 2017. Da allora ho accompagnato oltre 150 coppie nel giorno più importante della loro vita.</p>
+    <br>
+    <p class="reveal">Ogni matrimonio che organizzo è un pezzo della mia storia. Ci metto il cuore, l'esperienza e tutta la passione che questa terra meravigliosa mi ha insegnato.</p>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat reveal"><div class="stat-number">150+</div><div class="stat-label">Matrimoni organizzati</div></div>
+  <div class="stat reveal"><div class="stat-number">8</div><div class="stat-label">Anni di esperienza</div></div>
+  <div class="stat reveal"><div class="stat-number">30+</div><div class="stat-label">Location partner</div></div>
+  <div class="stat reveal"><div class="stat-number">100%</div><div class="stat-label">Coppie felici</div></div>
+</div>
+
+<section class="timeline-section">
+  <p class="section-tag text-center reveal">Il mio percorso</p>
+  <h2 class="section-title text-center reveal">Timeline</h2>
+  <div class="section-divider" style="margin: 32px auto 64px;"></div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2014</div>
+      <div class="timeline-text">
+        <h3>La scintilla</h3>
+        <p>Aiuto un'amica a organizzare il suo matrimonio e scopro che è ciò che voglio fare nella vita.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2016</div>
+      <div class="timeline-text">
+        <h3>La formazione</h3>
+        <p>Master in Event Management a Milano. Stage presso wedding planner internazionali.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2017</div>
+      <div class="timeline-text">
+        <h3>Il primo matrimonio</h3>
+        <p>Torno in Sicilia e organizzo il mio primo matrimonio ufficiale. Una cerimonia al tramonto a Taormina.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2020</div>
+      <div class="timeline-text">
+        <h3>Destination weddings</h3>
+        <p>Inizio a lavorare con coppie internazionali che scelgono la Sicilia per il loro giorno speciale.</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-year">2025</div>
+      <div class="timeline-text">
+        <h3>Oggi</h3>
+        <p>Oltre 150 matrimoni alle spalle, un team affiatato e la stessa passione del primo giorno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <p class="section-tag text-center reveal">I miei valori</p>
+  <h2 class="section-title text-center reveal">In cosa credo</h2>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">♡</div>
+      <h3>Autenticità</h3>
+      <p>Ogni coppia è unica. Non uso formule preconfezionate ma creo esperienze su misura.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">✦</div>
+      <h3>Eccellenza</h3>
+      <p>Curo ogni dettaglio con la stessa attenzione, dal menu alla playlist, dai fiori alle luci.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon">☀</div>
+      <h3>Gioia</h3>
+      <p>Il vostro matrimonio deve essere il giorno più bello. E anche il più divertente.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">Francesca <span>Ferlauto</span></div><p class="footer-desc">Wedding planner con base in Sicilia. Creo matrimoni su misura che raccontano storie d'amore uniche.</p></div>
+    <div><p class="footer-heading">Navigazione</p><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li><li><a href="servizi.html">Servizi</a></li><li><a href="mission.html">Mission</a></li></ul></div>
+    <div><p class="footer-heading">Contatti</p><ul class="footer-links"><li><a href="mailto:info@francescaferlauto.it">info@francescaferlauto.it</a></li><li><a href="tel:+393331234567">+39 333 123 4567</a></li><li>Catania, Sicilia</li></ul></div>
+    <div><p class="footer-heading">Social</p><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2022 Francesca Ferlauto. Tutti i diritti riservati.</span></div>
+</footer>
+
+<script>
+window.addEventListener('load', () => { setTimeout(() => document.querySelector('.loader').classList.add('hidden'), 500); });
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => observer.observe(el));
+function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('active'); document.getElementById('hamburger').classList.toggle('active'); document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : ''; }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('hamburger').classList.remove('active'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>

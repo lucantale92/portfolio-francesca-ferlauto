@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Miei Servizi — Francesca Ferlauto</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.services-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  background: var(--white);
+}
+.services-intro-img { aspect-ratio: 4/3; overflow: hidden; }
+.services-intro-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* PACKAGES */
+.packages { background: var(--cream); }
+.packages-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px; margin-top: 64px;
+}
+.package-card {
+  background: var(--white); padding: 48px 36px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.package-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(44,36,32,0.1);
+}
+.package-card.featured { border-top: 3px solid var(--terracotta); }
+.package-badge {
+  display: inline-block;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  background: var(--terracotta); color: var(--white);
+  padding: 4px 14px; margin-bottom: 24px;
+}
+.package-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 400; margin-bottom: 8px;
+  color: var(--text-dark);
+}
+.package-tagline {
+  font-size: 13px; color: var(--text-muted);
+  font-style: italic; margin-bottom: 24px;
+}
+.package-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; color: var(--terracotta);
+  margin-bottom: 24px;
+}
+.package-price span {
+  font-size: 14px; color: var(--text-muted);
+  font-family: 'Josefin Sans', sans-serif;
+}
+.package-features { list-style: none; margin-bottom: 32px; }
+.package-features li {
+  font-size: 14px; color: var(--text-body);
+  padding: 8px 0; border-bottom: 1px solid var(--divider);
+  padding-left: 20px; position: relative;
+}
+.package-features li::before {
+  content: '✓'; position: absolute; left: 0;
+  color: var(--terracotta); font-weight: 600;
+}
+
+/* PROCESS */
+.process { background: var(--white); }
+.process-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px; margin-top: 64px;
+}
+.process-step { text-align: center; position: relative; }
+.process-step::after {
+  content: '→'; position: absolute;
+  right: -28px; top: 36px;
+  font-size: 20px; color: var(--terracotta-light);
+}
+.process-step:last-child::after { display: none; }
+.process-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 300;
+  color: var(--azure-light); line-height: 1; margin-bottom: 16px;
+}
+.process-step h3 { font-size: 20px; margin-bottom: 12px; }
+.process-step p { font-size: 13px; color: var(--text-muted); line-height: 1.7; max-width: 100%; }
+
+/* EXTRAS */
+.extras { background: var(--cream); }
+.extras-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px; margin-top: 48px;
+}
+.extra-card {
+  display: flex; gap: 24px; align-items: flex-start;
+  padding: 32px; background: var(--white);
+}
+.extra-icon { font-size: 28px; flex-shrink: 0; margin-top: 4px; }
+.extra-card h3 { font-size: 20px; margin-bottom: 8px; }
+.extra-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; max-width: 100%; }
+
+/* CTA */
+.service-cta {
+  background: var(--terracotta); text-align: center; padding: 80px 60px;
+}
+.service-cta h2 { color: var(--white); margin-bottom: 16px; }
+.service-cta p {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 18px; color: rgba(255,255,255,0.8); margin: 0 auto 32px;
+}
+.btn-white { background: var(--white); color: var(--terracotta); }
+.btn-white:hover { background: var(--cream); color: var(--terracotta-dark); }
+
+@media (max-width: 968px) {
+  .services-intro { grid-template-columns: 1fr; gap: 40px; }
+  .packages-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-step::after { display: none; }
+  .extras-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"><div class="loader-icon">✿</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a><a href="chi-sono.html" onclick="closeMobile()">Chi Sono</a>
+  <a href="servizi.html" onclick="closeMobile()">Servizi</a><a href="mission.html" onclick="closeMobile()">Mission</a>
+  <a href="contatti.html" onclick="closeMobile()">Contatti</a>
+</div>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Francesca <span>Ferlauto</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li>
+    <li><a href="servizi.html" class="active">Servizi</a></li><li><a href="mission.html">Mission</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('img/servizi-hero.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Servizi</p>
+    <h1>I miei servizi</h1>
+    <p class="section-subtitle">Tre formule per il matrimonio dei vostri sogni</p>
+  </div>
+</section>
+
+<section class="services-intro">
+  <div class="reveal">
+    <p class="section-tag">Il mio approccio</p>
+    <h2 class="section-title">Ogni dettaglio<br>è importante</h2>
+    <div class="section-divider"></div>
+    <p>Dal primo incontro conoscitivo fino all'ultimo ballo, mi occupo di ogni aspetto del vostro matrimonio. Che scegliate un pacchetto completo o un servizio di coordinamento, avrete sempre la mia piena attenzione e dedizione.</p>
+  </div>
+  <div class="services-intro-img reveal">
+    <img src="img/servizi-intro.jpg" alt="Wedding planning" loading="lazy">
+  </div>
+</section>
+
+<section class="packages">
+  <p class="section-tag text-center reveal">I pacchetti</p>
+  <h2 class="section-title text-center reveal">Scegli la formula giusta</h2>
+  <div class="packages-grid">
+    <div class="package-card reveal">
+      <div class="package-name">Essenziale</div>
+      <div class="package-tagline">Coordinamento del giorno</div>
+      <div class="package-price">€1.500 <span>a partire da</span></div>
+      <ul class="package-features">
+        <li>Consulenza iniziale</li>
+        <li>Coordinamento il giorno del matrimonio</li>
+        <li>Gestione fornitori il giorno stesso</li>
+        <li>Timeline dettagliata</li>
+        <li>Sopralluogo location</li>
+      </ul>
+      <a href="contatti.html" class="btn btn-outline">Richiedi info</a>
+    </div>
+    <div class="package-card featured reveal">
+      <div class="package-badge">Più scelto</div>
+      <div class="package-name">Completo</div>
+      <div class="package-tagline">Organizzazione totale</div>
+      <div class="package-price">€4.000 <span>a partire da</span></div>
+      <ul class="package-features">
+        <li>Tutto del pacchetto Essenziale</li>
+        <li>Progettazione completa dell'evento</li>
+        <li>Selezione e gestione fornitori</li>
+        <li>Design e allestimenti</li>
+        <li>Budget management</li>
+        <li>Accompagnamento durante tutto il percorso</li>
+      </ul>
+      <a href="contatti.html" class="btn btn-primary">Richiedi info</a>
+    </div>
+    <div class="package-card reveal">
+      <div class="package-name">Luxury</div>
+      <div class="package-tagline">Esperienza esclusiva</div>
+      <div class="package-price">€8.000 <span>a partire da</span></div>
+      <ul class="package-features">
+        <li>Tutto del pacchetto Completo</li>
+        <li>Destination wedding management</li>
+        <li>Concierge per gli ospiti</li>
+        <li>Welcome dinner & after party</li>
+        <li>Servizio dedicato 24/7</li>
+        <li>Esperienza personalizzata su misura</li>
+      </ul>
+      <a href="contatti.html" class="btn btn-outline">Richiedi info</a>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <p class="section-tag text-center reveal">Come lavoro</p>
+  <h2 class="section-title text-center reveal">Il percorso insieme</h2>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="process-number">01</div>
+      <h3>Conoscenza</h3>
+      <p>Ci incontriamo, mi raccontate la vostra storia e la vostra visione del matrimonio perfetto.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-number">02</div>
+      <h3>Progettazione</h3>
+      <p>Creo un concept su misura con moodboard, palette colori, proposte location e fornitori.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-number">03</div>
+      <h3>Realizzazione</h3>
+      <p>Coordino ogni dettaglio: contratti, allestimenti, menu, musica, fiori, timeline.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-number">04</div>
+      <h3>Il grande giorno</h3>
+      <p>Mi occupo di tutto io. Voi dovete solo godervi ogni singolo momento.</p>
+    </div>
+  </div>
+</section>
+
+<section class="extras">
+  <p class="section-tag text-center reveal">Servizi extra</p>
+  <h2 class="section-title text-center reveal">Aggiungi qualcosa di speciale</h2>
+  <div class="extras-grid">
+    <div class="extra-card reveal">
+      <div class="extra-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9a8e84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-3-8-6-8-10a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 4-4 7-8 10z"/><path d="M12 2v10"/></svg></div>
+      <div><h3>Floral Design</h3><p>Collaboro con i migliori fioristi della Sicilia per creare composizioni uniche che raccontino il vostro stile.</p></div>
+    </div>
+    <div class="extra-card reveal">
+      <div class="extra-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9a8e84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <div><h3>Intrattenimento</h3><p>Dalla band live al DJ set, dal quartetto d'archi alla musica siciliana tradizionale. Creo la colonna sonora perfetta.</p></div>
+    </div>
+    <div class="extra-card reveal">
+      <div class="extra-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9a8e84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div><h3>Foto & Video</h3><p>Vi metto in contatto con fotografi e videomaker di talento che sanno catturare l'emozione di ogni istante.</p></div>
+    </div>
+    <div class="extra-card reveal">
+      <div class="extra-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9a8e84" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
+      <div><h3>Travel & Logistica</h3><p>Per i vostri ospiti che arrivano da lontano: transfer, alloggi, attività ed escursioni in Sicilia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="service-cta">
+  <h2 class="reveal">Parliamo del vostro matrimonio</h2>
+  <p class="reveal">Ogni storia è diversa. Raccontatemi la vostra e troveremo insieme la formula perfetta.</p>
+  <a href="contatti.html" class="btn btn-white reveal">Contattami</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">Francesca <span>Ferlauto</span></div><p class="footer-desc">Wedding planner con base in Sicilia. Creo matrimoni su misura che raccontano storie d'amore uniche.</p></div>
+    <div><p class="footer-heading">Navigazione</p><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li><li><a href="servizi.html">Servizi</a></li><li><a href="mission.html">Mission</a></li></ul></div>
+    <div><p class="footer-heading">Contatti</p><ul class="footer-links"><li><a href="mailto:info@francescaferlauto.it">info@francescaferlauto.it</a></li><li><a href="tel:+393331234567">+39 333 123 4567</a></li><li>Catania, Sicilia</li></ul></div>
+    <div><p class="footer-heading">Social</p><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2022 Francesca Ferlauto. Tutti i diritti riservati.</span></div>
+</footer>
+
+<script>
+window.addEventListener('load', () => { setTimeout(() => document.querySelector('.loader').classList.add('hidden'), 500); });
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => observer.observe(el));
+function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('active'); document.getElementById('hamburger').classList.toggle('active'); document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : ''; }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('hamburger').classList.remove('active'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>

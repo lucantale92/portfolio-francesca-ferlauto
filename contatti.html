@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contatti — Francesca Ferlauto</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; background: var(--white);
+}
+
+/* FORM */
+.contact-form label {
+  display: block; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text-muted);
+  margin-bottom: 8px; margin-top: 24px; font-weight: 400;
+}
+.contact-form label:first-child { margin-top: 0; }
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%; padding: 14px 0;
+  font-family: 'Josefin Sans', sans-serif; font-size: 15px;
+  color: var(--text-dark); background: transparent;
+  border: none; border-bottom: 1px solid var(--divider);
+  outline: none; transition: border-color 0.3s;
+  font-weight: 300;
+}
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus { border-bottom-color: var(--terracotta); }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form select { cursor: pointer; -webkit-appearance: none; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.form-submit { margin-top: 40px; }
+
+/* CONTACT INFO */
+.contact-info-cards { margin-top: 32px; }
+.contact-info-card {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--divider);
+}
+.contact-info-card:last-child { border-bottom: none; }
+.contact-info-label {
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--terracotta);
+  margin-bottom: 8px;
+}
+.contact-info-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; color: var(--text-dark);
+}
+.contact-info-value a { color: var(--text-dark); border-bottom: 1px solid var(--terracotta-light); }
+.contact-info-value a:hover { color: var(--terracotta); }
+
+/* SOCIAL LINKS */
+.contact-social {
+  display: flex; gap: 24px; margin-top: 40px;
+}
+.contact-social a {
+  display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px;
+  border: 1px solid var(--divider);
+  color: var(--text-muted); font-size: 13px;
+  text-decoration: none; letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+.contact-social a:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  background: rgba(198, 125, 90, 0.05);
+}
+
+/* MAP */
+.contact-map {
+  height: 400px; position: relative;
+  filter: saturate(0.7) brightness(1.05);
+  transition: filter 0.5s;
+}
+.contact-map:hover { filter: saturate(1) brightness(1); }
+.contact-map iframe { width: 100%; height: 100%; border: none; }
+
+/* FAQ */
+.faq { background: var(--cream); }
+.faq-grid { max-width: 800px; margin: 48px auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--divider);
+  padding: 24px 0; cursor: pointer;
+}
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-question h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px; font-weight: 400; color: var(--text-dark);
+}
+.faq-toggle {
+  font-size: 20px; color: var(--terracotta);
+  transition: transform 0.3s;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 200px; padding-top: 16px; }
+.faq-answer p {
+  font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 100%;
+}
+
+/* SUCCESS */
+.form-success {
+  display: none; text-align: center; padding: 48px;
+  background: rgba(139, 195, 74, 0.08); border: 1px solid rgba(139, 195, 74, 0.2);
+  margin-top: 24px;
+}
+.form-success.show { display: block; }
+.form-success h3 { color: var(--olive); margin-bottom: 8px; }
+.form-success p { color: var(--text-muted); font-size: 14px; max-width: 100%; }
+
+@media (max-width: 968px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"><div class="loader-icon">✿</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a><a href="chi-sono.html" onclick="closeMobile()">Chi Sono</a>
+  <a href="servizi.html" onclick="closeMobile()">Servizi</a><a href="mission.html" onclick="closeMobile()">Mission</a>
+  <a href="contatti.html" onclick="closeMobile()">Contatti</a>
+</div>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Francesca <span>Ferlauto</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li>
+    <li><a href="servizi.html">Servizi</a></li><li><a href="mission.html">Mission</a></li>
+    <li><a href="contatti.html" class="active">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('img/contatti-hero.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Contatti</p>
+    <h1>Parliamone</h1>
+    <p class="section-subtitle">Il primo passo verso il vostro matrimonio da sogno</p>
+  </div>
+</section>
+
+<section class="contact-grid" style="padding: 100px 60px;">
+  <div class="reveal">
+    <p class="section-tag">Scrivimi</p>
+    <h2 class="section-title">Raccontami<br>il vostro sogno</h2>
+    <div class="section-divider"></div>
+    <div class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div>
+          <label>Nome</label>
+          <input type="text" id="fname" placeholder="Il tuo nome" required>
+        </div>
+        <div>
+          <label>Cognome</label>
+          <input type="text" id="lname" placeholder="Il tuo cognome" required>
+        </div>
+      </div>
+      <label>Email</label>
+      <input type="email" id="email" placeholder="la-tua@email.it" required>
+      <label>Telefono</label>
+      <input type="tel" id="phone" placeholder="+39 ...">
+      <div class="form-row">
+        <div>
+          <label>Data del matrimonio</label>
+          <input type="text" id="date" placeholder="GG/MM/AAAA o periodo indicativo">
+        </div>
+        <div>
+          <label>Numero ospiti</label>
+          <input type="text" id="guests" placeholder="Numero indicativo">
+        </div>
+      </div>
+      <label>Pacchetto di interesse</label>
+      <select id="package">
+        <option value="">Seleziona un pacchetto...</option>
+        <option value="essenziale">Essenziale — Coordinamento</option>
+        <option value="completo">Completo — Organizzazione totale</option>
+        <option value="luxury">Luxury — Esperienza esclusiva</option>
+        <option value="altro">Non sono sicuro/a</option>
+      </select>
+      <label>Il vostro messaggio</label>
+      <textarea id="message" placeholder="Raccontatemi la vostra storia, la vostra visione, qualsiasi cosa vogliate condividere..."></textarea>
+      <div class="form-submit">
+        <button class="btn btn-primary" onclick="submitForm()">Invia messaggio</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <h3>Messaggio inviato!</h3>
+        <p>Grazie per avermi scritto. Vi risponderò entro 24 ore. Non vedo l'ora di conoscere la vostra storia!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <p class="section-tag">Info</p>
+    <h2 class="section-title">Come trovarmi</h2>
+    <div class="contact-info-cards">
+      <div class="contact-info-card">
+        <p class="contact-info-label">Email</p>
+        <p class="contact-info-value"><a href="mailto:info@francescaferlauto.it">info@francescaferlauto.it</a></p>
+      </div>
+      <div class="contact-info-card">
+        <p class="contact-info-label">Telefono</p>
+        <p class="contact-info-value"><a href="tel:+393331234567">+39 333 123 4567</a></p>
+      </div>
+      <div class="contact-info-card">
+        <p class="contact-info-label">Sede</p>
+        <p class="contact-info-value">Catania, Sicilia</p>
+      </div>
+      <div class="contact-info-card">
+        <p class="contact-info-label">Disponibilità</p>
+        <p class="contact-info-value">Lun–Ven: 9:00–18:00</p>
+      </div>
+      <div class="contact-info-card">
+        <p class="contact-info-label">Tempo di risposta</p>
+        <p class="contact-info-value">Entro 24 ore</p>
+      </div>
+    </div>
+    <div class="contact-social">
+      <a href="#">IG</a>
+      <a href="#">PIN</a>
+      <a href="#">FB</a>
+    </div>
+  </div>
+</section>
+
+<div class="contact-map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48936.5!2d15.05!3d37.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313e3a2a7e7a7a7%3A0x1!2sCatania!5e0!3m2!1sit!2sit!4v1" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<section class="faq">
+  <p class="section-tag text-center reveal">Domande frequenti</p>
+  <h2 class="section-title text-center reveal">FAQ</h2>
+  <div class="faq-grid">
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-question"><h3>Con quanto anticipo devo contattarti?</h3><span class="faq-toggle">+</span></div>
+      <div class="faq-answer"><p>L'ideale è almeno 12-18 mesi prima del matrimonio, soprattutto per i mesi estivi in Sicilia. Ma non esitate a contattarmi anche con meno anticipo — farò il possibile per aiutarvi.</p></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-question"><h3>Organizzi solo matrimoni in Sicilia?</h3><span class="faq-toggle">+</span></div>
+      <div class="faq-answer"><p>La Sicilia è la mia base e il mio territorio d'elezione, ma organizzo matrimoni in tutta Italia e anche all'estero per coppie che desiderano un destination wedding.</p></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-question"><h3>Il primo incontro è gratuito?</h3><span class="faq-toggle">+</span></div>
+      <div class="faq-answer"><p>Sì! Il primo incontro conoscitivo è sempre gratuito e senza impegno. Può essere di persona a Catania o in videochiamata.</p></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-question"><h3>Posso personalizzare i pacchetti?</h3><span class="faq-toggle">+</span></div>
+      <div class="faq-answer"><p>Assolutamente sì. I pacchetti sono una base di partenza. Ogni coppia ha esigenze diverse e io creo sempre una proposta su misura dopo il primo incontro.</p></div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-question"><h3>Come funziona il pagamento?</h3><span class="faq-toggle">+</span></div>
+      <div class="faq-answer"><p>Dopo la conferma, si versa un acconto del 30%. Il restante 70% viene suddiviso in rate concordate insieme, con il saldo finale un mese prima del matrimonio.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">Francesca <span>Ferlauto</span></div><p class="footer-desc">Wedding planner con base in Sicilia. Creo matrimoni su misura che raccontano storie d'amore uniche.</p></div>
+    <div><p class="footer-heading">Navigazione</p><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li><li><a href="servizi.html">Servizi</a></li><li><a href="mission.html">Mission</a></li></ul></div>
+    <div><p class="footer-heading">Contatti</p><ul class="footer-links"><li><a href="mailto:info@francescaferlauto.it">info@francescaferlauto.it</a></li><li><a href="tel:+393331234567">+39 333 123 4567</a></li><li>Catania, Sicilia</li></ul></div>
+    <div><p class="footer-heading">Social</p><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2022 Francesca Ferlauto. Tutti i diritti riservati.</span></div>
+</footer>
+
+<script>
+window.addEventListener('load', () => { setTimeout(() => document.querySelector('.loader').classList.add('hidden'), 500); });
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => observer.observe(el));
+function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('active'); document.getElementById('hamburger').classList.toggle('active'); document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : ''; }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('hamburger').classList.remove('active'); document.body.style.overflow = ''; }
+
+function toggleFaq(el) { el.classList.toggle('open'); }
+
+function submitForm() {
+  document.getElementById('formSuccess').classList.add('show');
+  document.querySelectorAll('#contactForm input, #contactForm textarea, #contactForm select').forEach(el => el.value = '');
+  setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 5000);
+}
+</script>
+</body>
+</html>

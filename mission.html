@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission — Francesca Ferlauto</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.mission-statement {
+  text-align: center; background: var(--white);
+  max-width: 800px; margin: 0 auto; padding: 100px 60px;
+}
+.mission-statement blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: clamp(24px, 4vw, 40px);
+  color: var(--text-dark); line-height: 1.4;
+  margin-bottom: 24px; font-weight: 300;
+}
+.mission-statement cite {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal; font-size: 12px;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+/* PILLARS */
+.pillars { background: var(--cream); }
+.pillars-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 40px; margin-top: 64px;
+}
+.pillar {
+  padding: 48px 32px; background: var(--white);
+  text-align: center; position: relative;
+  overflow: hidden;
+}
+.pillar::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--azure-light), var(--terracotta-light));
+}
+.pillar-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px; font-weight: 300;
+  color: var(--azure-light); line-height: 1; margin-bottom: 16px;
+}
+.pillar h3 { font-size: 24px; margin-bottom: 16px; }
+.pillar p { font-size: 14px; color: var(--text-muted); line-height: 1.8; max-width: 100%; }
+
+/* PHILOSOPHY */
+.philosophy {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  background: var(--white);
+}
+.philosophy-image { aspect-ratio: 4/5; overflow: hidden; }
+.philosophy-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* IMAGE BAND */
+.mission-band {
+  height: 45vh; position: relative; overflow: hidden;
+}
+.mission-band-bg {
+  position: absolute; top: -10%; left: 0; width: 100%; height: 120%;
+  background: url('img/mission-band.jpg') center/cover no-repeat;
+}
+.mission-band-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, var(--white) 0%, rgba(254,252,249,0.15) 30%, rgba(254,252,249,0.15) 70%, var(--cream) 100%);
+}
+
+/* COMMITMENT */
+.commitment { background: var(--cream); text-align: center; }
+.commitment-list {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 32px; margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.commitment-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  text-align: left; padding: 24px; background: var(--white);
+}
+.commitment-check {
+  color: var(--terracotta); font-size: 18px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.commitment-item p { font-size: 14px; color: var(--text-body); line-height: 1.7; max-width: 100%; }
+
+/* CTA */
+.mission-cta { background: var(--azure-dark); text-align: center; padding: 80px 60px; }
+.mission-cta h2 { color: var(--white); margin-bottom: 16px; }
+.mission-cta p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: rgba(255,255,255,0.8); margin: 0 auto 32px; }
+.btn-white { background: var(--white); color: var(--terracotta); }
+.btn-white:hover { background: var(--cream); color: var(--terracotta-dark); }
+
+@media (max-width: 968px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .philosophy { grid-template-columns: 1fr; gap: 40px; }
+  .commitment-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="loader"><div class="loader-icon">✿</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobile()">Home</a><a href="chi-sono.html" onclick="closeMobile()">Chi Sono</a>
+  <a href="servizi.html" onclick="closeMobile()">Servizi</a><a href="mission.html" onclick="closeMobile()">Mission</a>
+  <a href="contatti.html" onclick="closeMobile()">Contatti</a>
+</div>
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Francesca <span>Ferlauto</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li>
+    <li><a href="servizi.html">Servizi</a></li><li><a href="mission.html" class="active">Mission</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('img/mission-hero.jpg')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Mission</p>
+    <h1>La mia mission</h1>
+    <p class="section-subtitle">Creare matrimoni che restano nel cuore</p>
+  </div>
+</section>
+
+<div class="mission-statement reveal">
+  <blockquote>"Credo che un matrimonio non sia un evento da gestire, ma un'emozione da vivere. La mia missione è trasformare i vostri sogni in un giorno che ricorderete per sempre."</blockquote>
+  <cite>— Francesca Ferlauto</cite>
+</div>
+
+<section class="pillars">
+  <p class="section-tag text-center reveal">I pilastri</p>
+  <h2 class="section-title text-center reveal">Su cosa si fonda il mio lavoro</h2>
+  <div class="pillars-grid">
+    <div class="pillar reveal">
+      <div class="pillar-number">I</div>
+      <h3>Ascolto</h3>
+      <p>Tutto parte dall'ascolto. Capire chi siete, cosa vi emoziona, cosa sognate. Solo così posso creare qualcosa che vi rappresenti davvero.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-number">II</div>
+      <h3>Territorio</h3>
+      <p>La Sicilia non è solo uno sfondo. È un ingrediente fondamentale. La luce, i sapori, i profumi, la storia — tutto diventa parte del vostro matrimonio.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-number">III</div>
+      <h3>Emozione</h3>
+      <p>I dettagli perfetti contano, ma è l'emozione che rende un matrimonio indimenticabile. Ogni scelta è guidata dalla domanda: cosa farà sentire gli sposi e i loro ospiti?</p>
+    </div>
+  </div>
+</section>
+
+<div class="mission-band">
+  <div class="mission-band-bg"></div>
+  <div class="mission-band-overlay"></div>
+</div>
+
+<section class="philosophy">
+  <div class="philosophy-image reveal">
+    <img src="img/mission-philosophy.jpg" alt="Filosofia di lavoro" loading="lazy">
+  </div>
+  <div class="reveal">
+    <p class="section-tag">La mia filosofia</p>
+    <h2 class="section-title">Non organizzo<br>matrimoni.<br>Creo ricordi.</h2>
+    <div class="section-divider"></div>
+    <p>In un mondo dove tutto è veloce e standardizzato, io scelgo la lentezza e la cura. Ogni matrimonio che organizzo è un viaggio che faccio insieme alla coppia, dal primo incontro fino all'ultimo ballo.</p>
+    <br>
+    <p>Non credo nei matrimoni "da catalogo". Credo nelle storie vere, nelle emozioni genuine, nelle risate spontanee e nelle lacrime di gioia. Il mio lavoro è creare lo spazio perfetto perché tutto questo accada naturalmente.</p>
+  </div>
+</section>
+
+<section class="commitment">
+  <p class="section-tag text-center reveal">Il mio impegno</p>
+  <h2 class="section-title text-center reveal">Cosa prometto ad ogni coppia</h2>
+  <div class="commitment-list">
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Trasparenza totale.</strong> Budget chiaro, nessun costo nascosto, comunicazione aperta e costante.</p>
+    </div>
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Dedizione esclusiva.</strong> Seguo un numero limitato di matrimoni per anno per garantire la massima qualità.</p>
+    </div>
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Rete di eccellenza.</strong> Lavoro solo con fornitori che condividono i miei standard di qualità e affidabilità.</p>
+    </div>
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Sostenibilità.</strong> Promuovo scelte eco-friendly: fiori locali, fornitori a km zero, riduzione degli sprechi.</p>
+    </div>
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Serenità.</strong> Il vostro percorso verso il matrimonio deve essere gioioso, non stressante. Ci penso io a tutto.</p>
+    </div>
+    <div class="commitment-item reveal">
+      <span class="commitment-check">✦</span>
+      <p><strong>Memoria.</strong> Dopo il matrimonio, vi consegno un album fotografico del dietro le quinte e un report completo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mission-cta">
+  <h2 class="reveal">Condividi con me il tuo sogno</h2>
+  <p class="reveal">Iniziamo a scrivere insieme il capitolo più bello della vostra storia.</p>
+  <a href="contatti.html" class="btn btn-white reveal">Contattami</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">Francesca <span>Ferlauto</span></div><p class="footer-desc">Wedding planner con base in Sicilia. Creo matrimoni su misura che raccontano storie d'amore uniche.</p></div>
+    <div><p class="footer-heading">Navigazione</p><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="chi-sono.html">Chi Sono</a></li><li><a href="servizi.html">Servizi</a></li><li><a href="mission.html">Mission</a></li></ul></div>
+    <div><p class="footer-heading">Contatti</p><ul class="footer-links"><li><a href="mailto:info@francescaferlauto.it">info@francescaferlauto.it</a></li><li><a href="tel:+393331234567">+39 333 123 4567</a></li><li>Catania, Sicilia</li></ul></div>
+    <div><p class="footer-heading">Social</p><ul class="footer-links"><li><a href="#">Instagram</a></li><li><a href="#">Pinterest</a></li><li><a href="#">Facebook</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>&copy; 2022 Francesca Ferlauto. Tutti i diritti riservati.</span></div>
+</footer>
+
+<script>
+window.addEventListener('load', () => { setTimeout(() => document.querySelector('.loader').classList.add('hidden'), 500); });
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => observer.observe(el));
+function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('active'); document.getElementById('hamburger').classList.toggle('active'); document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : ''; }
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('hamburger').classList.remove('active'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>
